@@ -168,7 +168,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 4vw;
+  padding: 0.5rem 4vw;
   gap: 2rem;
 }
 
@@ -180,7 +180,7 @@ a {
 }
 
 .logo-card {
-  padding: 0.85rem;
+  padding: 0.6rem;
   border-radius: 1.25rem;
   border: 1px solid rgba(201, 162, 91, 0.4);
   background: radial-gradient(circle at top left, rgba(201, 162, 91, 0.2), transparent 55%),
@@ -345,10 +345,48 @@ a {
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem 4vw 2.5rem;
-  background: linear-gradient(135deg, #0a1540, #102255 60%, #0f1b3d 100%);
+  gap: 2.5rem;
+  padding: 2.5rem 4vw 3.5rem;
+  min-height: 70vh;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(9, 15, 32, 0.94), rgba(14, 27, 58, 0.9) 55%, rgba(10, 18, 38, 0.95) 100%),
+    url("Elegant-Law-Firm-Logos-with-Scales-of-Justice---Classic-Timeless-Designs.jpeg") center/cover no-repeat;
   color: var(--white);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(201, 162, 91, 0.25), transparent 40%),
+    radial-gradient(circle at 85% 5%, rgba(201, 162, 91, 0.18), transparent 35%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 120px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 120px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 8, 18, 0.8) 0%, transparent 45%, rgba(5, 8, 18, 0.8) 100%);
+  pointer-events: none;
+}
+
+.hero-content,
+.hero-panel,
+.hero-metrics {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 560px;
 }
 
 .hero-content h1 {
@@ -369,15 +407,45 @@ a {
   padding: 1.6rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(5, 8, 18, 0.45);
+  display: grid;
+  gap: 0.6rem;
 }
 
 .hero-panel__icon {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.hero-panel__icon::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  transform: translateY(-50%);
+}
+
+.hero-panel__label {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
 }
 
 .hero-panel h2 {
-  margin: 0.5rem 0;
+  margin: 0.2rem 0;
   font-size: 1.5rem;
 }
 
@@ -393,12 +461,81 @@ a {
   flex-wrap: wrap;
 }
 
+.hero-metrics {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.hero-metric {
+  background: rgba(12, 20, 40, 0.75);
+  border-radius: 0.9rem;
+  border: 1px solid rgba(201, 162, 91, 0.35);
+  padding: 0.9rem 1.1rem;
+  display: grid;
+  gap: 0.25rem;
+  box-shadow: 0 16px 32px rgba(7, 12, 28, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.hero-metric .metric-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.hero-metric .metric-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .services,
 .about,
 .contact {
   padding: 4rem 4vw;
   background: var(--white);
   margin-top: 2rem;
+}
+
+.services {
+  background: linear-gradient(135deg, #0b1022, #111b37);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(201, 162, 91, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 90%, rgba(201, 162, 91, 0.12), transparent 40%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.services .section-heading {
+  text-align: left;
+  max-width: 880px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.services .section-heading h3 {
+  color: var(--white);
+}
+
+.services .section-heading p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.services .eyebrow {
+  color: var(--gold);
 }
 
 .section-heading {
@@ -425,18 +562,48 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .service-grid article {
-  border: 1px solid rgba(15, 27, 61, 0.1);
+  border: 1px solid rgba(201, 162, 91, 0.2);
   border-radius: 1rem;
   padding: 1.5rem;
-  background: #fffdf9;
+  background: rgba(255, 255, 255, 0.04);
+  display: grid;
+  gap: 0.75rem;
+  box-shadow: 0 18px 30px rgba(8, 12, 25, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-grid article::before {
+  content: '';
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(201, 162, 91, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(135deg, rgba(201, 162, 91, 0.2), rgba(201, 162, 91, 0.05));
 }
 
 .service-grid h4 {
   margin-top: 0;
   font-size: 1.25rem;
+  color: var(--white);
+}
+
+.service-grid p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.service-grid article:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 162, 91, 0.6);
+  box-shadow: 0 22px 40px rgba(8, 12, 25, 0.5);
 }
 
 .about {
@@ -510,8 +677,8 @@ footer {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1.1rem 4vw;
+    gap: 0.6rem;
+    padding: 0.4rem 4vw;
   }
 
   .logo-block {
@@ -523,7 +690,7 @@ footer {
   }
 
   .logo-card {
-    max-width: 190px;
+    max-width: 150px;
     margin: 0;
     border-radius: 999px;
   }
@@ -662,6 +829,19 @@ footer {
   .site-header.is-open .cta.secondary {
     grid-column: 1 / -1;
     display: inline-flex;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 2.5rem 4vw 3rem;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .services .section-heading {
+    text-align: center;
   }
 }
 
